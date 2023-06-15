@@ -7,18 +7,26 @@ function Add() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [position, setPosition] = useState("");
+  const [image, setImage] = useState("");
 
   const navigate = useNavigate();
-  const data = {
+  const item = {
     name: name,
     email: email,
     phone: phone,
+    position: position,
+    image: image,
   };
 
   function submitForm(e) {
     e.preventDefault();
-    axios.post("http://localhost:3000/users", data).then(navigate("/"));
+    axios.post("http://localhost:3000/users", item).then(navigate("/"));
   }
+
+  
+
+
   return (
     <div className="w-screen h-full flex flex-col justify-center items-center mt-16">
       <h2 className="text-2xl font-bold">ADD USER</h2>
@@ -43,6 +51,20 @@ function Add() {
           className="bg-white/10 outline-none font-normal border border-zinc-400 py-6 pl-6 mt-4"
           type="phone"
           placeholder="Enter your phone no."
+        />
+         <input
+          value={position}
+          onChange={(e) => setPosition(e.target.value)}
+          className="bg-white/10 outline-none font-normal border border-zinc-400 py-6 pl-6 mt-4"
+          type="position"
+          placeholder="Enter your position."
+        />
+         <input
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+          className="bg-white/10 outline-none font-normal border border-zinc-400 py-6 pl-6 mt-4"
+          type="file"
+          placeholder="Upload your image."
         />
         <button
           className="bg-teal-600 outline-none font-bold border text-white border-zinc-400 py-4 pl-4 mt-4"

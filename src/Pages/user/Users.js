@@ -10,7 +10,7 @@ function Users() {
 
   useEffect(() => {
     axios.get(`http://localhost:3000/users/${id}`).then((res) => {
-      setUser(res.data);
+      setUser(res.item);
     });
   }, []);
 
@@ -36,6 +36,12 @@ function Users() {
               <h2 className="text-white font-bold text-3xl border-black border-b-2">
                 Phone
               </h2>
+              <h2 className="text-white font-bold text-3xl border-black border-b-2">
+                Position
+              </h2>
+              <h2 className="text-white font-bold text-3xl border-black border-b-2">
+                Image
+              </h2>
             </div>
             <div className="w-7/12 flex flex-col space-y-4  ">
               <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
@@ -46,6 +52,12 @@ function Users() {
               </h2>
               <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
                 {user.phone}
+              </h2>
+              <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
+                {user.position}
+              </h2>
+              <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
+                {user.image}
               </h2>
             </div>
           </div>

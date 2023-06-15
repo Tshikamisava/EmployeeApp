@@ -1,19 +1,28 @@
 {
   "users": [
     {
-      "id": 1,
-      "Name": "Lucky",
-      "email": "lhlongwane81@gmail.com",
-      "phone": "0670962825",
-      "position": "full-stack Dev",
-      "image": "image",
-      "action": "action"
+      "name": "luckuy",
+      "email": "HLON@gamil.com",
+      "phone": "06725826",
+      "position": "frontend",
+      "image": "C:\\fakepath\\pizza.jpg",
+      "id": 1
     },
     {
-      "name": "",
-      "email": "",
-      "phone": "",
+      "name": "LUCK",
+      "email": "jl;dods@gmail.com",
+      "phone": "046245",
+      "position": "dev",
+      "image": "Images/image.webp",
       "id": 2
+    },
+    {
+      "name": "Amu",
+      "email": "amu@gmail.com",
+      "phone": "073 2552585 ",
+      "position": "software Dev",
+      "image": "C:\\fakepath\\2.png",
+      "id": 3
     }
   ]
 }
