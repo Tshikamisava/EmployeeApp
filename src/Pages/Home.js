@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import React, { useEffect, useState,} from "react";
 import { Link } from "react-router-dom";
 import Users from "./user/Users";
@@ -89,8 +90,9 @@ function Home() {
                         scope="col"
                         className="text-sm font-lg text-white px-6 py-4"
                       >
-                        Name
+                        Name and Surname
                       </th>
+                  
                       <th
                         scope="col"
                         className="text-sm font-lg text-white px-6 py-4"
@@ -126,50 +128,50 @@ function Home() {
                   <tbody className="border-black border-b-2">
                     
                   {users &&
-                                users.filter((item) => {
-                                   return  search.toLowerCase() === '' ? item : item.id.toString().toLowerCase().includes(search.toLowerCase())
-                                }).map(item => (
+                                users.filter((data) => {
+                                   return  search.toLowerCase() === '' ? data : data.id.toString().toLowerCase().includes(search.toLowerCase())
+                                }).map(data  => (
                   
                       <tr
-                        key={item}
+                        key={data.id}
                         className="bg-white border-b-2 border-black"
                       >
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 ">
-                          {item + 1}
+                          {data.id}
                         </td>
                         <td className="text-xl text-gray-900 font-semibold px-6 py-4 whitespace-nowrap">
-                          {item.name}
+                          {data.name}
                         </td>
                         <td className="text-xl text-gray-900 font-semibold px-6 py-4 whitespace-nowrap">
-                          {item.email}
+                          {data.email}
                         </td>
                         <td className="text-xl text-gray-900 font-semibold px-6 py-4 whitespace-nowrap">
-                          {item.phone}
+                          {data.phone}
                         </td>
                         <td className="text-xl text-gray-900 font-semibold px-6 py-4 whitespace-nowrap">
-                          {item.position}
+                          {data.position}
                         </td>
                         <td className="text-xl text-gray-900 font-semibold px-6 py-4 whitespace-nowrap">
-                           <img  src={`${item.image}`}  style={{height:70, width:70}} />
+                           <img  src={`${data.image}`}  style={{height:70, width:70}} />
                         </td>
 
 
                         <td className="text-sm flex justify-between  items-center text-gray-900 font-bold px-6 py-4 space-x-4 whitespace-nowrap">
                           <Link
-                            to={`/users/${item.id}`}
+                            to={`/users/${data.id}`}
                             className="bg-teal-600 text-white px-6 py-2 rounded-lg"
                           >
                             VIew
                           </Link>
                           <Link
-                            to={`/edit-user/${item.id}`}
+                            to={`/edit-user/${data.id}`}
                             className="bg-blue-600 text-white px-6 py-2 rounded-lg"
                           >
                             Edit
                           </Link>
                           <Link
-                            onClick={()=>deleteUser(item.id)}
-                            to={"#"}
+                            onClick={()=>deleteUser(data.id)}
+                            to={`/`}
                             className="bg-red-600 text-white px-6 py-2 rounded-lg"
                           >
                             Delete

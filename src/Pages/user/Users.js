@@ -10,7 +10,7 @@ function Users() {
 
   useEffect(() => {
     axios.get(`http://localhost:3000/users/${id}`).then((res) => {
-      setUser(res.item);
+      setUser(res.data);
     });
   }, []);
 
@@ -28,24 +28,27 @@ function Users() {
           <div className="w-[700px] h-[200] px-6 py-4 flex shadow-xl rounded-xl justify-center items-center bg-teal-600 mt-16 border-teal-800 border-2">
             <div className="w-5/12 flex flex-col space-y-4">
               <h2 className="text-white font-bold text-3xl border-black border-b-2">
-                Name
+                Name and Surname
               </h2>
               <h2 className="text-white font-bold text-3xl border-black border-b-2">
                 Email
-              </h2>
+              </h2><br></br>
               <h2 className="text-white font-bold text-3xl border-black border-b-2">
                 Phone
-              </h2>
+              </h2><br></br>
               <h2 className="text-white font-bold text-3xl border-black border-b-2">
                 Position
-              </h2>
+              </h2><br></br>
               <h2 className="text-white font-bold text-3xl border-black border-b-2">
                 Image
-              </h2>
+              </h2><br></br>
             </div>
             <div className="w-7/12 flex flex-col space-y-4  ">
               <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
                 {user.name}
+              </h2><br></br>
+              <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
+                {user.surname}
               </h2>
               <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
                 {user.email}
@@ -57,7 +60,7 @@ function Users() {
                 {user.position}
               </h2>
               <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
-                {user.image}
+                {user.image.data}
               </h2>
             </div>
           </div>

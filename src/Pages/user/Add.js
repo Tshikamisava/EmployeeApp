@@ -8,7 +8,7 @@ function Add() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [position, setPosition] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState({ preview: '', data: '' })
 
   const navigate = useNavigate();
   const item = {
@@ -16,7 +16,7 @@ function Add() {
     email: email,
     phone: phone,
     position: position,
-    image: image,
+    image: image.data,
   };
 
   function submitForm(e) {
@@ -25,18 +25,24 @@ function Add() {
   }
 
   
-
+  const handleFileChange = (e) => {
+      const img = {
+          preview: URL.createObjectURL(e.target.files[0]),
+          data: URL.createObjectURL(e.target.files[0]),
+      }
+      setImage(img)
+  }
 
   return (
     <div className="w-screen h-full flex flex-col justify-center items-center mt-16">
       <h2 className="text-2xl font-bold">ADD USER</h2>
-      <form className="w-[50%] h-full flex flex-col mt-2">
+      <form className="w-[50%] h-full flex flex-col mt-2" on Submit>
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="bg-white/10 outline-none font-normal border border-zinc-400 py-6 pl-6 mt-4"
           type="text"
-          placeholder="Enter your name"
+          placeholder="Enter your name and surname"
         />
         <input
           value={email}
@@ -59,11 +65,11 @@ function Add() {
           type="position"
           placeholder="Enter your position."
         />
-         <input
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
+         <input  type="file"
+         
+          onChange={handleFileChange}
           className="bg-white/10 outline-none font-normal border border-zinc-400 py-6 pl-6 mt-4"
-          type="file"
+         
           placeholder="Upload your image."
         />
         <button

@@ -8,17 +8,17 @@ function Edit() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [position, setPosition] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState({ preview: '', data: '' })
 
   const { id } = useParams();
 
   useEffect(() => {
     axios.get(`http://localhost:3000/users/${id}`).then((res) => {
-      setName(res.item.name);
-      setEmail(res.item.email);
-      setPhone(res.item.phone);
-      setPosition(res.item.position);
-      setImage(res.item.image);
+      setName(res.data.name);
+      setEmail(res.data.email);
+      setPhone(res.data.phone);
+      setPosition(res.data.position);
+      setImage(res.data.image);
      
     });
   }, []);
@@ -30,7 +30,7 @@ function Edit() {
     email: email,
     phone: phone,
     position: position,
-    image: image,
+    image: image.data,
 
   };
 
@@ -38,6 +38,14 @@ function Edit() {
     e.preventDefault();
     axios.put(`http://localhost:3000/users/${id}`, item).then(navigate("/"));
   }
+
+  const handleFileChange = (e) => {
+    const img = {
+        preview: URL.createObjectURL(e.target.files[0]),
+        data: URL.createObjectURL(e.target.files[0]),
+    }
+    setImage(img)
+}
   return (
     <div className="w-screen h-full flex flex-col justify-center items-center mt-16">
       <h2 className="text-2xl font-bold">User Details</h2>
@@ -49,6 +57,7 @@ function Edit() {
           type="text"
           placeholder="Enter your name"
         />
+        
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -72,7 +81,7 @@ function Edit() {
         />
         <input
           
-          onChange={(e) => setImage(e.target.value)}
+          onChange={handleFileChange}
           className="bg-white/10 outline-none font-normal border border-zinc-400 py-6 pl-6 mt-4"
           type="file"
           placeholder="upload image."
