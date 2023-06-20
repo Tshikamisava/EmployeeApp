@@ -171,7 +171,7 @@ function Home() {
                           </Link>
                           <Link
                             onClick={()=>deleteUser(data.id)}
-                            to={`/`}
+                            to={`/Sucess`}
                             className="bg-red-600 text-white px-6 py-2 rounded-lg"
                           >
                             Delete

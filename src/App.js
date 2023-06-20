@@ -3,6 +3,7 @@ import axios from "axios";
 import './App.css';
 import Home from './Pages/Home';
 import Navbar from './Pages/Navbar';
+import Sucess from './Pages/user/Sucess';
 import Add from './Pages/user/Add';
 import Edit from './Pages/user/Edit';
 import Users from './Pages/user/Users';
@@ -26,6 +27,7 @@ function App() {
         <Route  path="/users/:id" exact element={<Users/>} />
         <Route  path="/add-user" exact element={<Add/>} />
         <Route  path="/edit-user/:id" exact element={<Edit/>} />
+        <Route  path="/Sucess" exact element={<Sucess/>} />
       </Routes>
     </div>
   );

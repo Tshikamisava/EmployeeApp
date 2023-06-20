@@ -5,8 +5,32 @@
       "email": "lhlongwane81@gmail.com",
       "phone": "0670962825",
       "position": "Full-Stack Dev",
-      "image": "blob:http://localhost:3001/126f63d4-ed1d-4dbd-af2b-71226d02af03",
+      "image": "blob:http://localhost:3001/b32f33b9-885f-41d9-ab18-da76fa7d5851",
       "id": 1
+    },
+    {
+      "name": "Serge Mthombeni",
+      "email": "serge@gmail.com",
+      "phone": "07214787376",
+      "position": "Mobile Dev",
+      "image": "blob:http://localhost:3001/1959fe74-bf76-484b-83e7-ca7b6410b7dc",
+      "id": 2
+    },
+    {
+      "name": "Clerence Sithole",
+      "email": "clerence@gmail.com",
+      "phone": "0678952369",
+      "position": "Front-end Dev",
+      "image": "blob:http://localhost:3001/43a5af28-70d0-4afa-85cd-847d271bfb75",
+      "id": 3
+    },
+    {
+      "name": "Amu Nyambi",
+      "email": "amu@gmail.com",
+      "phone": "0731475986",
+      "position": "Back-end Dev",
+      "image": "blob:http://localhost:3001/240bc080-7e20-4633-9550-55d544041cbb",
+      "id": 4
     }
   ]
 }

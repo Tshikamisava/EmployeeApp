@@ -60,7 +60,7 @@ function Users() {
                 {user.position}
               </h2>
               <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
-                {user.image.data}
+                {user.image}
               </h2>
             </div>
           </div>
